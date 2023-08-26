@@ -17,5 +17,9 @@ jobs:
         run: npm install -g pnpm 
       - name: Install Dependencies
         run: pnpm install
-      - name: Test and Build
-        run: pnpm lint-build
+      - name: "Lint Test"
+        run: "pnpm lint"
+      - name: Run Cypress Tests
+        run: pnpm cypress:run
+      - name: Build Project
+        run: pnpm build

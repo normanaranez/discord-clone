@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open",
-    "lint-build": "concurrently \"pnpm lint\" \"pnpm build\""
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --headed --browser chrome"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
