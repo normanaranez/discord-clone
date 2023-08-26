@@ -18,4 +18,5 @@ jobs:
       
       - name: Install Dependencies
         run: pnpm install
-      
+      - name: CI
+        run: pnpm run ci
