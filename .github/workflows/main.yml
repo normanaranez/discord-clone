@@ -20,8 +20,6 @@ jobs:
       - name: "Lint Test"
         run: "pnpm lint"
       - name: Run Cypress Tests
-        run: |
-            pnpm dev
-            pnpm cypress:run
+        run: concurrently "pnpm dev" "pnpm cypress:run"
       - name: Build Project
         run: pnpm build
