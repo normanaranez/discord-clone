@@ -1,0 +1,23 @@
+name: Build and Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node_version: '18'
+      - name: Install PNPM
+        run: npm install -g pnpm
+      
+      - name: Install Dependencies
+        run: pnpm install
+      
