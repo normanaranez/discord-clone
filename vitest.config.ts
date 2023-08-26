@@ -1,8 +1,10 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  test: {
-    dir: './__test__'
-  },
+    plugins: [react()],
+    test: {
+        dir: './__test__',
+    },
 })
