@@ -4,7 +4,7 @@ type AuthLayoutProps = {
 
 const AuthLayout = ({ children }: AuthLayoutProps) => {
     return (
-        <div className="bg-red-500 h-full">
+        <div className="h-full flex items-center justify-center">
             {children}
         </div>
     );
