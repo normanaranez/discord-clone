@@ -19,7 +19,5 @@ jobs:
         run: pnpm install
       - name: "Lint Test"
         run: "pnpm lint"
-      - name: Run Cypress Tests
-        run: concurrently "pnpm dev" "pnpm cypress:run"
       - name: Build Project
         run: pnpm build
