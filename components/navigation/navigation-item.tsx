@@ -3,13 +3,13 @@
 import Image from 'next/image';
 import { ActionTooltip } from '../action-tooltip';
 import { z } from 'zod';
-import { formSchema } from '@/app/api/servers/route';
 import { cn } from '@/lib/utils';
 import { useParams, useRouter } from 'next/navigation';
+import { ServerSchemaProps } from '@/schemas/ServerSchema';
 
 type NavigationItemProps = {
     id: string;
-} & z.infer<typeof formSchema>;
+} & ServerSchemaProps;
 
 export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
 
