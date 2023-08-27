@@ -14,8 +14,8 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 // api
-import { formSchema } from '@/app/api/servers/route';
 import { useModal } from '@/hooks/use-modal-store';
+import { ServerSchema, ServerSchemaProps } from '@/schemas/ServerSchema';
 
 
 export const CreateServerModal = () => {
@@ -25,8 +25,8 @@ export const CreateServerModal = () => {
     const isModalOpen = isOpen && type === 'createServer';
 
     const router = useRouter();
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema as any),
+    const form = useForm<ServerSchemaProps>({
+        resolver: zodResolver(ServerSchema as any),
         defaultValues: {
             name: "",
             imageUrl: ""
@@ -40,7 +40,7 @@ export const CreateServerModal = () => {
         onClose();
     };
 
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const onSubmit = async (values: ServerSchemaProps) => {
         try {
             
             await axios.post('/api/servers', values);

@@ -50,7 +50,7 @@ export const EditServerModal = () => {
         onClose();
     };
 
-    const onSubmit = async (values: z.infer<typeof ServerSchema>) => {
+    const onSubmit = async (values: ServerSchemaProps) => {
         try {
             
             await axios.patch(`/api/servers/${server?.id}`, values);

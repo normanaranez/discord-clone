@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 // api
-import { formSchema } from '@/app/api/servers/route';
+import { ServerSchema, ServerSchemaProps } from '@/schemas/ServerSchema';
 
 
 export const InitialModal = () => {
@@ -28,8 +28,8 @@ export const InitialModal = () => {
         setIsMounted(true);
     }, []);
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema as any),
+    const form = useForm<ServerSchemaProps>({
+        resolver: zodResolver(ServerSchema as any),
         defaultValues: {
             name: "",
             imageUrl: ""
@@ -38,7 +38,7 @@ export const InitialModal = () => {
 
     const isLoadingg = form.formState.isSubmitting;
 
-    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const onSubmit = async (values: ServerSchemaProps) => {
         try {
             
             await axios.post('/api/servers', values);
