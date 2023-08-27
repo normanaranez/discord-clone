@@ -4,21 +4,12 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { v4 as uuidv4 } from 'uuid';
 import { MemberRole } from "@prisma/client";
-
-
-export const formSchema = z.object({
-    name: z.string().min(1, {
-        message: "Server name is required."
-    }),
-    imageUrl: z.string().min(1, {
-        message: "Server image is required."
-    })
-});
+import { ServerSchemaProps } from "@/schemas/ServerSchema";
 
 export async function POST(req: Request) {
     try {
 
-        const { name, imageUrl  }: z.infer<typeof formSchema> = await req.json();
+        const { name, imageUrl  }: ServerSchemaProps = await req.json();
 
         const profile = await currentProfile();
 
