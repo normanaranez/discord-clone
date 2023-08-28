@@ -38,5 +38,3 @@ export async function PATCH(req: Request, { params }: { params: { serverId: stri
         return new NextResponse('Internal Error', { status: 500 });
     }
 }
-
-// 4:15.38
